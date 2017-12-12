@@ -1,0 +1,37 @@
+{
+  "name": "awesome-bot",
+  "version": "0.0.1",
+  "description": "🤖 Universal micro chatbot platform ⚡ https://github.com/noveogroup-amorgunov/awesomebot",
+  "main": "index.js",
+  "scripts": {
+    "prepublish": "npm run build",
+    "flow": "flow",
+    "build": "npm run clean && babel src -d lib",
+    "clean": "rimraf lib",
+    "check": "flow check",
+    "start": "nodemon index.js"
+  },
+  "keywords": ["chatbot", "bot", "flow", "nodejs"],
+  "author": "Alexander Morgunov",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "colors": "^1.1.2",
+    "koa-compose": "^4.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.0.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-flow": "^6.23.0",
+    "eslint": "^4.13.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-flowtype": "^2.40.0",
+    "eslint-plugin-import": "^2.8.0",
+    "flow-bin": "^0.61.0",
+    "nodemon": "^1.12.5",
+    "rimraf": "^2.6.2"
+  }
+}
