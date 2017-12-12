@@ -8,6 +8,6 @@ export interface ConnectorInterface {
     getUser(): Promise<UserType>;
     send(message: string): Promise<void>;
     listen(): any;
-    on(event: string, handler: Function): void;
-    emit(event: string, data: any): void;
+    on(event: string, handler: Function): any;
+    emit(event: string, data: any): any;
 }
