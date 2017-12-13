@@ -1,11 +1,11 @@
-const {ConsoleConnector, Bot} = require('../../lib');
+const { ConsoleConnector, ConsoleBot } = require('../../lib');
 const giphyService = require('./giphyService');
 
 const connector = new ConsoleConnector().listen();
-const bot = new Bot({connector});
+const bot = new ConsoleBot({ connector });
 
 bot.use(/\/gif (.+)/, async (ctx, next) => {
-    const keywords = ctx.message.params[0];
+    const keywords = ctx.event.params[0];
     const gifUrl = await giphyService.getGifUrlByKeywords(keywords);
 
     ctx.session.send(`Goto ${gifUrl} to see ${keywords}`);

@@ -11,13 +11,19 @@
     "check": "flow check",
     "start": "nodemon index.js"
   },
-  "keywords": ["chatbot", "bot", "flow", "nodejs"],
+  "keywords": [
+    "chatbot",
+    "bot",
+    "flow",
+    "nodejs"
+  ],
   "author": "Alexander Morgunov",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.17.1",
     "colors": "^1.1.2",
-    "koa-compose": "^4.0.0"
+    "koa-compose": "^4.0.0",
+    "node-telegram-bot-api": "^0.29.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

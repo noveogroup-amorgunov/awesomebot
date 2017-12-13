@@ -1,7 +1,7 @@
-const { ConsoleConnector, Bot } = require('../../lib');
+const {ConsoleConnector, ConsoleBot} = require('../../lib');
 
 const connector = new ConsoleConnector().listen();
-const bot = new Bot({ connector });
+const bot = new ConsoleBot({connector});
 
 const {DEBUG_SESSION_STATE} = process.env;
 
@@ -15,13 +15,13 @@ if (DEBUG_SESSION_STATE) {
     });
 }
 
-bot.use(async ({session, message}) => {
+bot.use(async ({session, event}) => {
     if (session.state.asking) {
-        session.setState({ name: message.getText(), asking: false });
+        session.setState({name: event.text, asking: false});
         await session.send(`Hey ${session.state.name}!`);
     } else {
         session.resetState();
-        session.setState({ asking: true });
+        session.setState({asking: true});
         await session.send("Hi, what's your nickname?");
     }
 });

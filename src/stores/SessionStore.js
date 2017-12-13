@@ -1,16 +1,16 @@
 /* @flow */
 
 import type {SessionStoreInterface} from './SessionStoreInterface';
-import type {SessionType} from '../types/SessionType';
+import type {Session} from '../base/SessionInterface';
 
 export class SessionStore implements SessionStoreInterface {
-    _store: { [string]: SessionType } = {};
+    _store: { [string]: Session } = {};
 
-    async find(key: string) {
+    async find(key: string): Promise<Session | null> {
         return Promise.resolve(this._store[key]);
     }
 
-    async add(key: string, data: SessionType) {
+    async add(key: string, data: Session) {
         this._store[key] = data;
         return Promise.resolve();
     }

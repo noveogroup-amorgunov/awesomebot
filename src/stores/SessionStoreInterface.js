@@ -1,9 +1,9 @@
 /* @flow */
 
-import type {SessionType} from '../types/SessionType';
+import type {Session} from '../base/SessionInterface';
 
 export interface SessionStoreInterface {
-    find(key: string): Promise<SessionType | null>;
-    add(key: string, data: SessionType): Promise<any>;
+    find(key: string): Promise<Session | null>;
+    add(key: string, data: Session): Promise<any>;
     destroy(key: string): Promise<any>;
 }

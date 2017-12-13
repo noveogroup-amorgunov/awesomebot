@@ -1,12 +1,12 @@
-const { ConsoleConnector, Bot } = require('../../lib');
+const {ConsoleConnector, ConsoleBot} = require('../../lib');
 
 const connector = new ConsoleConnector().listen();
-const bot = new Bot({ connector });
+const bot = new ConsoleBot({connector});
 
-bot.use(async (ctx) => {
+bot.use(async () => {
     throw new Error('Awesome error');
 });
 
 bot.catch((err) => {
-    console.error('ERROR: Opps', err);
+    console.error(err);
 });

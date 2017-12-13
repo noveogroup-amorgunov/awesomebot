@@ -1,7 +1,7 @@
-const { ConsoleConnector, Bot } = require('../../lib');
+const {ConsoleConnector, ConsoleBot} = require('../../lib');
 
 const connector = new ConsoleConnector().listen();
-const bot = new Bot({ connector });
+const bot = new ConsoleBot({connector});
 
 bot.use(async (ctx, next) => {
     const start = Date.now();

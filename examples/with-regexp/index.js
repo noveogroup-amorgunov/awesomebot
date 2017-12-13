@@ -1,8 +1,8 @@
-const { ConsoleConnector, Bot } = require('../../lib');
+const {ConsoleConnector, ConsoleBot} = require('../../lib');
 
 const connector = new ConsoleConnector().listen();
-const bot = new Bot({ connector });
+const bot = new ConsoleBot({connector});
 
-bot.use(/\/yo (.+)/, async ({session, message}) => {
-    await session.send(`hey ${message.params[0]}`);
+bot.use(/\/yo (.+)/, async ({session, event}) => {
+    await session.send(`hey ${event.params[0]}`);
 });

@@ -5,6 +5,7 @@ Make your awesome bots :robot: in few steps!
 - Written with :zap: ES6/ES7 javascript syntax
 - Very easy to use
 - Use custom session store, platform connector with same interface
+- Support telegram
 
 ## Installation
 
@@ -25,14 +26,15 @@ You can find a lot of examples in the [examples folder](https://github.com/noveo
 Here is the simple example of usign awesomebot as the **echo-bot**. It always says what you said. There is used async/await function as message's handler.
 
 ```js
-const {ConsoleConnector, Bot} = require('awesomebot');
+const {ConsoleConnector, ConsoleBot} = require('awesomebot');
 
-const connector = new ConsoleConnector().listen(); // Create "console" connector
-const bot = new Bot({connector});
+ // Create "console" connector to listen process.stdin
+const connector = new ConsoleConnector().listen();
+const bot = new ConsoleBot({connector});
 
-// Middleware for handling all messages
+// Middleware for handling messages
 bot.use(async (ctx, next) => {
-    const text = ctx.message.getText(); // Get user's message
+    const {text} = ctx.event; // Get user's message
     await ctx.session.send(`> You said: ${text}`); // Send back
     next();
 });
@@ -49,6 +51,7 @@ yo
 
 Another examples:
 
+- :snowman: [telegram-hello-world](examples/telegram-hello-world) - telegram example bot 
 - [echo-bot](examples/echo-bot)
 - [async-middleware](examples/async-middleware) - notify the execution time
 - [handle-error](examples/handle-error) - custom function for handling errors
@@ -61,7 +64,6 @@ Another examples:
 
 - Add `MongoSessionStore`
 - Add `RedisSessionStore`
-- Add `TelegramConnector`
 - Add `VKConnector`
 - Add Documentation
 - Add dialog system like microsoft botbuilder
