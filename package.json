@@ -1,6 +1,6 @@
 {
   "name": "awesomebot",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "🤖 Universal micro chatbot platform ⚡ https://github.com/noveogroup-amorgunov/awesomebot",
   "main": "index.js",
   "scripts": {
