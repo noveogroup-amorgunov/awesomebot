@@ -8,4 +8,5 @@ export interface Session {
     +state: ?{};
     +isNew: boolean;
     +send: (text: string) => any;
+    toJSON(): {};
 }

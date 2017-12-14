@@ -9,20 +9,25 @@ import Session from '../../base/Session';
 type ConstructorOptions = {
     user: TelegramUser,
     client: TelegramClient,
-    initialState: SessionStateType
+    initialState: SessionStateType,
+    sessionKey: string,
+    state?: SessionStateType,
+    isNew?: boolean,
+    connector: any,
 }
 
 export class TelegramSession extends Session implements SessionInterface {
     _client: TelegramClient;
+    _connector: any;
     state: SessionStateType;
     initialState: SessionStateType;
     isNew: boolean = true;
     user: TelegramUser;
 
-    constructor({user, client, initialState}: ConstructorOptions) {
-        super({initialState});
-        this._client = client;
-        this.user = user;
+    constructor(opts: ConstructorOptions) {
+        super(opts);
+        this._client = opts.client;
+        this.user = opts.user;
     }
 
     getUsername(): string {

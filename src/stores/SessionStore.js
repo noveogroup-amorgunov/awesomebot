@@ -15,6 +15,11 @@ export class SessionStore implements SessionStoreInterface {
         return Promise.resolve();
     }
 
+    async update(key: string, data: Session) {
+        this._store[key] = data;
+        return Promise.resolve();
+    }
+
     async destroy(key: string) {
         delete this._store[key];
         return Promise.resolve();

@@ -6,4 +6,5 @@ export interface SessionStoreInterface {
     find(key: string): Promise<Session | null>;
     add(key: string, data: Session): Promise<any>;
     destroy(key: string): Promise<any>;
+    update(key: string, data: Session): Promise<void>;
 }

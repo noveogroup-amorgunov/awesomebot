@@ -8,7 +8,11 @@ import Session from '../../base/Session';
 type ConstructorOptions = {
     user: ConsoleUser,
     client: ConsoleClient,
-    initialState: SessionStateType
+    initialState: SessionStateType,
+    sessionKey: string,
+    state?: SessionStateType,
+    isNew?: boolean,
+    connector: any,
 }
 
 export class ConsoleSession extends Session implements SessionInterface {
@@ -18,11 +22,10 @@ export class ConsoleSession extends Session implements SessionInterface {
     isNew: boolean = true;
     user: ConsoleUser;
 
-    constructor({user, client, initialState}: ConstructorOptions) {
-        super({initialState});
-        this._client = client;
-
-        this.user = user;
+    constructor(opts: ConstructorOptions) {
+        super(opts);
+        this._client = opts.client;
+        this.user = opts.user;
     }
 
     getUsername(): string {

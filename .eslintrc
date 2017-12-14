@@ -23,6 +23,7 @@
       "consistent-return": "off",
       "object-curly-spacing": "off",
       "import/prefer-default-export": "off",
-      "no-underscore-dangle": "off"
+      "no-underscore-dangle": "off",
+      "object-curly-newline": "off"
     }
 }  

@@ -81,7 +81,7 @@ export class TelegramConnector extends EventEmitter implements ConnectorInterfac
         const handler = (isCallbackQuery = false) => async (rawBody) => {
             const fieldKey = isCallbackQuery ? 'callback_query' : 'message';
             const rawEvent: TelegramRequestBody = {update_id: 1, [fieldKey]: rawBody};
-            console.log(rawEvent);
+            // console.log(rawEvent);
             const event = new TelegramEvent(rawEvent);
             const user = await this.getUser(rawEvent);
             const sessionKey = this.getUniqueSessionKey(rawEvent);

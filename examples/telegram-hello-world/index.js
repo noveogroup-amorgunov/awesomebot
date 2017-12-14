@@ -7,5 +7,5 @@ const bot = new TelegramBot({connector});
 
 bot.use(async (ctx, next) => {
     const text = `Hello, *${ctx.session.getUsername()}*`;
-    await ctx.session.send(text, {parse_mode: 'Markdown'})
+    await ctx.session.send(text, {parse_mode: 'Markdown'});
 });
